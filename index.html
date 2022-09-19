@@ -1,11 +1,55 @@
 <!DOCTYPE >
 <html>
   <head>
-    <title>Emergenct Contact List</title>
+    <title>Catholic Health Emergency Contacts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    test 1
+    <table id="tblDisplay">
+      <caption>
+        Catholic Health Emergency Contacts
+      </caption>
+      <thead>
+        <tr id="tblHeader"></tr>
+      </thead>
+      <tbody id="tblBody"></tbody>
+    </table>
+    <script>
+      // prettier-ignore
+      const phListing = [
+        { name: "name 1", phone: "631-111-1111" },
+        { name: "name 2", phone: "631-111-1111" },
+        { name: "name 3", phone: "631-111-1111" },
+      ];
+
+      const hdr = document.getElementById("tblHeader");
+      for (var key in phListing[0]) {
+        if (phListing[0].hasOwnProperty(key)) {
+          let th = document.createElement("th");
+          let txt = document.createTextNode(key);
+          th.setAttribute("scope", "col");
+          th.appendChild(txt);
+          hdr.appendChild(th);
+        }
+      }
+
+      const bdy = document.getElementById("tblBody");
+      for (let i = 0; i < phListing.length; i++) {
+        let tr = document.createElement("tr");
+        for (var key in phListing[i]) {
+          if (phListing[i].hasOwnProperty(key)) {
+            let td = document.createElement("td");
+            let txt = document.createTextNode(phListing[i][key]);
+            td.setAttribute("data-label", key);
+            td.appendChild(txt);
+            tr.appendChild(td);
+          }
+        }
+        bdy.appendChild(tr);
+        console.log("test - ", i);
+      }
+    </script>
   </body>
 </html>
