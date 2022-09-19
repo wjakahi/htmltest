@@ -19,7 +19,7 @@
     <script>
       // prettier-ignore
       const phListing = [
-        { name: "name 1asdf asdfrjtyuk tuktyuk  asdf asdf asdf asdf asdf asdf asdf asdf dsfend", phone: "631-111-1111" },
+        { name: "name 1", phone: "631-111-1111" },
         { name: "name 2", phone: "631-111-1111" },
         { name: "name 3", phone: "631-111-1111" },
       ];
@@ -42,8 +42,17 @@
           if (phListing[i].hasOwnProperty(key)) {
             let td = document.createElement("td");
             let txt = document.createTextNode(phListing[i][key]);
+
+            if (key.toLowerCase() == "phone") {
+              let a = document.createElement("a");
+              a.appendChild(txt);
+              a.href = `tel:${phListing[i][key]}`;
+              td.appendChild(a);
+            } else {
+              td.appendChild(txt);
+            }
+
             td.setAttribute("data-label", key);
-            td.appendChild(txt);
             tr.appendChild(td);
           }
         }
