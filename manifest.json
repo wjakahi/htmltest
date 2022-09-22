@@ -3,7 +3,7 @@
   "background_color": "#fff",
   "display": "browser",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/htmltest",
   "name": "Catholic Health Emergency Contacts",
   "short_name": "CH Contacts",
   "icons": [
