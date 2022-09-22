@@ -72,7 +72,7 @@ content: attr(aria-label);
     float: left;
     font-weight: bold;
     text-transform: uppercase;
-    margin-right: 10px;
+    margin-right: 5px;
   }
 
   table td:last-child {
