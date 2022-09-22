@@ -41,7 +41,7 @@
         for (var key in phListing[i]) {
           if (phListing[i].hasOwnProperty(key)) {
             let td = document.createElement("td");
-            let txt = document.createTextNode(`&nbsp;&nbsp;${phListing[i][key]}`);
+            let txt = document.createTextNode(`  ${phListing[i][key]}`);
 
             if (key.toLowerCase() == "phone") {
               let a = document.createElement("a");
