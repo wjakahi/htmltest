@@ -3,8 +3,89 @@
   <head>
     <title>Catholic Health Emergency Contacts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="manifest" href="./manifest.json" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <style>
+      table {
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        table-layout: fixed;
+      }
+
+      table caption {
+        font-size: 1.5em;
+        margin: 0.5em 0 0.75em;
+      }
+
+      table tr {
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        padding: 0.35em;
+      }
+
+      table th,
+      table td {
+        padding: 0.625em;
+        text-align: center;
+      }
+
+      table th {
+        font-size: 0.85em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      @media screen and (max-width: 600px) {
+        table {
+          border: 0;
+        }
+
+        table caption {
+          font-size: 1.3em;
+        }
+
+        table thead {
+          border: none;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+        }
+
+        table tr {
+          border-bottom: 3px solid #ddd;
+          display: block;
+          margin-bottom: 0.625em;
+        }
+
+        table td {
+          border-bottom: 1px solid #ddd;
+          display: block;
+          font-size: 0.8em;
+          text-align: right;
+        }
+
+        table td::before {
+          /*
+* aria-label has no advantage, it won't be read inside a table
+content: attr(aria-label);
+*/
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+          text-transform: uppercase;
+          margin-right: 5px;
+        }
+
+        table td:last-child {
+          border-bottom: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <table id="tblDisplay">
@@ -19,10 +100,133 @@
     <script>
       // prettier-ignore
       const phListing = [
-        { name: "name 1d", phone: "631-111-1111" },
-        { name: "name 2", phone: "631-111-1111" },
-        { name: "name 3", phone: "631-111-1111" },
-      ];
+        {
+            "Area/Title": "President and Chief Executive Officer",
+            "Executive": "Dr. Patrick O'Shaughnessy",
+            "Mobile": "631-579-7731",
+            "Office": "516-705-3708",
+            "Name": "Maryann Cudahy"
+        },
+        {
+            "Area/Title": "Executive Vice President and Chief Operating Officer",
+            "Executive": "Dennis Verzi",
+            "Mobile": "917-370-6451",
+            "Office": "516-705-3925",
+            "Name": "Gail Gross"
+        },
+        {
+            "Area/Title": "Executive Vice President and Chief Medical Officer",
+            "Executive": "Dr. Jason Golbin",
+            "Mobile": "516-297-6849",
+            "Office": "516-705-7182",
+            "Name": "Evelyn Valdez"
+        },
+        {
+            "Area/Title": "Executive Vice President and Chief Transformation Officer",
+            "Executive": "Joseph Lamantia",
+            "Mobile": "516-351-7149",
+            "Office": "631-465-6566",
+            "Name": "Marybeth Martin"
+        },
+        {
+            "Area/Title": "Senior Vice President and Chief Digital Information Officer",
+            "Executive": "Michael Mainiero",
+            "Mobile": "516-238-8035",
+            "Office": "631-465-6566",
+            "Name": "Marybeth Martin"
+        },
+        {
+            "Area/Title": "Senior Vice President and Chief HR Officer",
+            "Executive": "Anthony Pellicano",
+            "Mobile": "516-637-6858",
+            "Office": "516-705-3924",
+            "Name": "Sarah Dolan "
+        },
+        {
+            "Area/Title": "Executive Vice President and General Counsel",
+            "Executive": "Tracy Miller",
+            "Mobile": "917-331-6628",
+            "Office": "516-705-3915",
+            "Name": "Patricia Hendel"
+        },
+        {
+            "Area/Title": "Senior Vice President for Strategy and Chief Marketing Officer",
+            "Executive": "Joseph Carofano",
+            "Mobile": "203-606-8331",
+            "Office": "516-705-3924",
+            "Name": "Sarah Dolan "
+        },
+        {
+            "Area/Title": "Senior Vice President for Mission Integration",
+            "Executive": "Father Kevin Creagh",
+            "Mobile": "631-377-9565 ",
+            "Office": "631-465-6283",
+            "Name": "Shannon Hughes"
+        },
+        {
+            "Area/Title": "Chief Development Officer",
+            "Executive": "Peggy Maher",
+            "Mobile": "516-242-7995",
+            "Office": "516-563-7973",
+            "Name": "Kathy-Ann Macri"
+        },
+        {
+            "Area/Title": "Chief Nursing Officer",
+            "Executive": "Gara Edelstein",
+            "Mobile": "516-356-6146 ",
+            "Office": "631-376-4100",
+            "Name": "Nancy Rosati"
+        },
+        {
+            "Area/Title": "President, St. Francis",
+            "Executive": "Dr. Charles Lucore",
+            "Mobile": "516-701-5789",
+            "Office": "516-562-6697",
+            "Name": "Ava Walsh"
+        },
+        {
+            "Area/Title": "President, Good Samaritan",
+            "Executive": "Ruth Hennessey",
+            "Mobile": "516-384-3368",
+            "Office": "631-376-4100",
+            "Name": "Nancy Rosati"
+        },
+        {
+            "Area/Title": "President, St. Charles & St. Catherine",
+            "Executive": "James O'Connor",
+            "Mobile": "631-374-3081",
+            "Office": "631-474-6600 / 631-862-3100",
+            "Name": "Jean Caminske (SCH) / Paula Primm (SCS)"
+        },
+        {
+            "Area/Title": "President, St. Joseph",
+            "Executive": "Christopher Nelson",
+            "Mobile": "516-353-3542",
+            "Office": "516-520-2301",
+            "Name": "Halina Howlett"
+        },
+        {
+            "Area/Title": "President, Mercy Medical",
+            "Executive": "Joseph Manopella",
+            "Mobile": "516-779-1327",
+            "Office": "516-705-6481",
+            "Name": "Farida Awad "
+        },
+        {
+            "Area/Title": "President, Homecare & Hospice",
+            "Executive": "Kim Kranz",
+            "Mobile": "631-275-0211",
+            "Office": "631-828-7409",
+            "Name": "Diane Trotta"
+        },
+        {
+            "Area/Title": "President, Catholic Health Physician Partners",
+            "Executive": "Dr. Avni Thakore",
+            "Mobile": "631-466-5037",
+            "Office": "631-465-6463",
+            "Name": "Lisa Iovine"
+        }
+    ];
 
       const hdr = document.getElementById("tblHeader");
       for (var key in phListing[0]) {
@@ -43,7 +247,7 @@
             let td = document.createElement("td");
             let txt = document.createTextNode(phListing[i][key]);
 
-            if (key.toLowerCase() == "phone") {
+            if (key.toLowerCase() == "mobile" || key.toLowerCase() == "office") {
               let a = document.createElement("a");
               a.appendChild(txt);
               a.href = `tel:${phListing[i][key]}`;
